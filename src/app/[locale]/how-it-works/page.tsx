@@ -27,7 +27,7 @@ export default async function HowItWorksPage({
         }
       />
 
-      <div className="mx-auto w-full max-w-2xl flex-1 p-8">
+      <div className="mx-auto w-full max-w-2xl flex-1 p-4 sm:p-8">
         <p className="mb-6 text-sm leading-relaxed text-slate-300">{t("intro")}</p>
 
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-400">

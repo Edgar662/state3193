@@ -67,9 +67,9 @@ export function BookingGrid() {
       {!data ? null : !data.event ? (
         <p className="p-8 text-center text-slate-400">{t("noEvent")}</p>
       ) : (
-        <div className="mx-auto w-full max-w-3xl flex-1 p-8">
-          <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-            <div className="flex gap-2">
+        <div className="mx-auto w-full max-w-3xl flex-1 p-4 sm:p-8">
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+            <div className="flex gap-2 overflow-x-auto">
               {DAYS.map((day) => {
                 const Icon = DAY_ICONS[day];
                 const active = activeDay === day;
@@ -77,7 +77,7 @@ export function BookingGrid() {
                   <button
                     key={day}
                     onClick={() => setActiveDay(day)}
-                    className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium ${
+                    className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
                       active
                         ? "bg-blue-600 text-white"
                         : "bg-slate-800/60 text-slate-300 hover:bg-slate-800"
@@ -89,8 +89,8 @@ export function BookingGrid() {
                 );
               })}
             </div>
-            <div className="flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-sm text-slate-300">
-              <CalendarDays className="h-4 w-4 text-slate-400" />
+            <div className="flex items-center gap-2 self-start rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-sm text-slate-300">
+              <CalendarDays className="h-4 w-4 shrink-0 text-slate-400" />
               {dayDate && formatDate(dayDate, locale)}
             </div>
           </div>
@@ -176,21 +176,21 @@ function SlotList({
         return (
           <div
             key={slot}
-            className="flex items-center justify-between gap-4 border-b border-slate-800 bg-slate-900/40 px-5 py-3 last:border-b-0"
+            className="flex items-center justify-between gap-2 border-b border-slate-800 bg-slate-900/40 px-3 py-2.5 last:border-b-0 sm:gap-4 sm:px-5 sm:py-3"
           >
-            <span className="w-28 shrink-0 font-mono text-sm text-slate-300">
+            <span className="w-20 shrink-0 font-mono text-xs text-slate-300 sm:w-28 sm:text-sm">
               {timeLabel}
               {dayOffset !== 0 && (
                 <span className="ms-1 text-xs text-amber-400">{dayOffset > 0 ? `+${dayOffset}d` : `${dayOffset}d`}</span>
               )}
             </span>
-            <span className="flex flex-1 items-center gap-2 text-sm">
-              <span className={`h-2 w-2 rounded-full ${taken ? "bg-red-500" : "bg-emerald-500"}`} />
-              <span className={taken ? "text-red-400" : "text-emerald-400"}>
+            <span className="flex min-w-0 flex-1 items-center gap-1.5 text-xs sm:gap-2 sm:text-sm">
+              <span className={`h-2 w-2 shrink-0 rounded-full ${taken ? "bg-red-500" : "bg-emerald-500"}`} />
+              <span className={`shrink-0 ${taken ? "text-red-400" : "text-emerald-400"}`}>
                 {taken ? t("slotTaken") : t("slotFree")}
               </span>
               {taken && (
-                <span className="text-slate-400">
+                <span className="truncate text-slate-400">
                   {booking!.playerName} ({booking!.alliance})
                 </span>
               )}
@@ -198,7 +198,7 @@ function SlotList({
             <button
               disabled={taken}
               onClick={() => onPick(slot)}
-              className={`shrink-0 rounded-md border px-4 py-1.5 text-sm font-medium ${
+              className={`shrink-0 rounded-md border px-2.5 py-1.5 text-xs font-medium sm:px-4 sm:text-sm ${
                 taken
                   ? "cursor-not-allowed border-slate-800 text-slate-600"
                   : "border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white"

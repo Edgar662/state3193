@@ -15,7 +15,9 @@
     "subtitle": "Presidency Scheduler",
     "language": "Idioma",
     "state": "Estado {number}",
-    "copyright": "© {year} WOS Scheduler. Todos os direitos reservados."
+    "copyright": "© {year} WOS Scheduler. Todos os direitos reservados.",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
   },
   "days": {
     "CONSTRUCTION": "Construção",

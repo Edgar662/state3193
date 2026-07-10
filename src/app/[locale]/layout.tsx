@@ -52,7 +52,7 @@ export default async function LocaleLayout({
       dir={dir}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex bg-[#0b1220] text-slate-100">
+      <body className="min-h-full flex flex-col bg-[#0b1220] text-slate-100 md:flex-row">
         <NextIntlClientProvider>
           <Sidebar />
           <main className="flex-1 flex flex-col overflow-y-auto">{children}</main>

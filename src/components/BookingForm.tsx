@@ -84,7 +84,7 @@ export function BookingForm({ day, slot, onCancel, onSuccess }: Props) {
   if (batchResults) {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-        <div className="w-full max-w-sm rounded-lg border border-slate-700 bg-slate-900 p-6 shadow-xl">
+        <div className="max-h-[90vh] w-full max-w-sm overflow-y-auto rounded-lg border border-slate-700 bg-slate-900 p-6 shadow-xl">
           <h2 className="mb-4 text-lg font-semibold text-slate-100">{t("resultsTitle")}</h2>
           <ul className="mb-4 space-y-2">
             {batchResults.map(({ day: d, error }) => (
@@ -116,7 +116,7 @@ export function BookingForm({ day, slot, onCancel, onSuccess }: Props) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-      <div className="w-full max-w-sm rounded-lg border border-slate-700 bg-slate-900 p-6 shadow-xl">
+      <div className="max-h-[90vh] w-full max-w-sm overflow-y-auto rounded-lg border border-slate-700 bg-slate-900 p-6 shadow-xl">
         <h2 className="mb-4 text-lg font-semibold text-slate-100">{t("title")}</h2>
         <p className="mb-4 text-sm text-slate-400">
           {tDays(day)} — {slotToLabel(slot)} UTC

@@ -15,7 +15,9 @@
     "subtitle": "Presidency Scheduler",
     "language": "اللغة",
     "state": "الولاية {number}",
-    "copyright": "© {year} WOS Scheduler. جميع الحقوق محفوظة."
+    "copyright": "© {year} WOS Scheduler. جميع الحقوق محفوظة.",
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة"
   },
   "days": {
     "CONSTRUCTION": "البناء",

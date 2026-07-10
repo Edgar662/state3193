@@ -68,7 +68,7 @@ export function AdminUsersManager() {
   if (!admins) return null;
 
   return (
-    <div className="mt-10 rounded-lg border border-slate-800 bg-slate-900/40 p-6">
+    <div className="mt-10 rounded-lg border border-slate-800 bg-slate-900/40 p-4 sm:p-6">
       <h2 className="mb-1 flex items-center gap-2 text-lg font-semibold text-slate-100">
         <ShieldCheck className="h-5 w-5 text-blue-500" />
         {t("title")}
@@ -97,14 +97,14 @@ export function AdminUsersManager() {
         ))}
       </ul>
 
-      <form onSubmit={handleCreate} className="flex flex-wrap items-end gap-3">
+      <form onSubmit={handleCreate} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end">
         <div>
           <label className="mb-1 block text-xs font-medium text-slate-400">{t("usernameLabel")}</label>
           <input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            className="rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200"
+            className="w-full rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200 sm:w-auto"
           />
         </div>
         <div>
@@ -115,13 +115,13 @@ export function AdminUsersManager() {
             onChange={(e) => setPassword(e.target.value)}
             required
             minLength={8}
-            className="rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200"
+            className="w-full rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200 sm:w-auto"
           />
         </div>
         <button
           type="submit"
           disabled={submitting}
-          className="flex items-center gap-2 rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-60"
+          className="flex items-center justify-center gap-2 rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-60"
         >
           <UserPlus className="h-4 w-4" />
           {t("addButton")}

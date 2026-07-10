@@ -85,8 +85,8 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
         }
       />
 
-      <div className="mx-auto w-full max-w-4xl flex-1 p-8">
-        <div className="mb-8 flex flex-wrap items-end gap-3 rounded-lg border border-slate-800 bg-slate-900/40 p-4">
+      <div className="mx-auto w-full max-w-4xl flex-1 p-4 sm:p-8">
+        <div className="mb-8 flex flex-col gap-4 rounded-lg border border-slate-800 bg-slate-900/40 p-4 sm:flex-row sm:flex-wrap sm:items-end sm:gap-3">
           <div>
             <label className="mb-1 block text-xs font-medium text-slate-400">
               {selectedEvent?.isActive ? t("activeEvent") : t("history")}
@@ -94,7 +94,7 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
             <select
               value={selectedEventId ?? ""}
               onChange={(e) => setSelectedEventId(e.target.value)}
-              className="rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200"
+              className="w-full rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200 sm:w-auto"
             >
               {events.map((event) => (
                 <option key={event.id} value={event.id}>
@@ -104,14 +104,14 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
             </select>
           </div>
 
-          <div className="ml-auto flex items-end gap-2">
+          <div className="flex flex-col gap-2 sm:ml-auto sm:flex-row sm:items-end">
             <div>
               <label className="mb-1 block text-xs font-medium text-slate-400">{t("newEventDateLabel")}</label>
               <input
                 type="date"
                 value={newEventDate}
                 onChange={(e) => setNewEventDate(e.target.value)}
-                className="rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200"
+                className="w-full rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200 sm:w-auto"
               />
             </div>
             <button
