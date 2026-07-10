@@ -1,0 +1,113 @@
+{
+  "app": {
+    "title": "SvS Rollen-Zeitplan"
+  },
+  "languages": {
+    "pt": "Português",
+    "en": "English",
+    "ar": "العربية",
+    "ru": "Русский",
+    "de": "Deutsch"
+  },
+  "nav": {
+    "schedule": "Zeitplan",
+    "howItWorks": "So funktioniert's",
+    "subtitle": "Presidency Scheduler",
+    "language": "Sprache",
+    "state": "Staat {number}",
+    "copyright": "© {year} WOS Scheduler. Alle Rechte vorbehalten."
+  },
+  "days": {
+    "CONSTRUCTION": "Bau",
+    "RESEARCH": "Forschung",
+    "TROOPS": "Truppen"
+  },
+  "home": {
+    "title": "Zeitplan",
+    "subtitle": "Wähle einen Tag und buche deinen Slot.",
+    "noEvent": "Derzeit ist kein Event aktiv. Wende dich an einen Admin.",
+    "slotFree": "Frei",
+    "slotTaken": "Gebucht",
+    "unavailable": "Nicht verfügbar",
+    "book": "Buchen",
+    "oneSlotNote": "Jeder Spieler kann pro Tag nur einen Slot buchen.",
+    "adminLink": "Admin-Bereich"
+  },
+  "howItWorks": {
+    "title": "So funktioniert's",
+    "subtitle": "Verstehe die Regeln, bevor du buchst.",
+    "intro": "Während des SvS (State vs State) wechselt sich die Allianz an 3 Vorbereitungstagen mit der Präsidentenrolle ab. Wer die Rolle im gebuchten Zeitslot innehat, erhält den entsprechenden Bonus.",
+    "rulesTitle": "Regeln",
+    "rules": [
+      "Es gibt 3 Tage: Bau, Forschung und Truppen.",
+      "Die Zeitslots laufen von 00:00 bis 23:30 Uhr, in 30-Minuten-Blöcken, immer in UTC.",
+      "Jeder Spieler (identifiziert durch die Spiel-ID) kann pro Tag nur 1 Slot buchen.",
+      "Dieselbe ID kann an verschiedenen Tagen buchen, auch zur gleichen Uhrzeit.",
+      "Am Monatsende eröffnet ein Admin ein neues Event und der Zeitplan wird zurückgesetzt."
+    ]
+  },
+  "form": {
+    "title": "Zeitslot buchen",
+    "day": "Tag",
+    "time": "Uhrzeit (UTC)",
+    "gameId": "Spiel-ID",
+    "gameIdHint": "Nur Zahlen.",
+    "playerName": "Name im Spiel",
+    "alliance": "Allianz",
+    "allianceHint": "3 Buchstaben (Allianz-Tag).",
+    "submit": "Buchung bestätigen",
+    "cancel": "Abbrechen",
+    "submitting": "Wird gesendet...",
+    "success": "Erfolgreich gebucht!",
+    "allDaysCheckbox": "Diese Uhrzeit ({time}) an allen 3 Tagen buchen: Bau, Forschung und Truppen.",
+    "resultsTitle": "Buchungsergebnis",
+    "close": "Schließen",
+    "errors": {
+      "invalid_input": "Bitte überprüfe die ausgefüllten Felder.",
+      "slot_taken": "Dieser Zeitslot wurde gerade vergeben. Wähle einen anderen.",
+      "id_already_booked_today": "Diese ID hat an diesem Tag bereits einen Zeitslot gebucht.",
+      "no_active_event": "Es gibt derzeit kein aktives Event.",
+      "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+    }
+  },
+  "admin": {
+    "loginTitle": "Admin-Anmeldung",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "loginButton": "Anmelden",
+    "loginError": "Ungültiger Benutzername oder Passwort.",
+    "logout": "Abmelden",
+    "panelTitle": "Admin-Bereich",
+    "activeEvent": "Aktives Event",
+    "newEvent": "Neuen Monat starten",
+    "newEventDateLabel": "Startdatum (Bau)",
+    "newEventConfirm": "Dadurch wird der Zeitplan für einen neuen Monat zurückgesetzt. Der aktuelle Monat bleibt im Verlauf gespeichert. Fortfahren?",
+    "history": "Event-Verlauf",
+    "copyId": "ID kopieren",
+    "copied": "ID kopiert!",
+    "delete": "Löschen",
+    "deleteConfirm": "Diese Buchung entfernen?",
+    "empty": "Noch keine Buchungen.",
+    "gameId": "ID",
+    "playerName": "Name",
+    "alliance": "Allianz",
+    "time": "Uhrzeit"
+  },
+  "admins": {
+    "title": "Admins verwalten",
+    "subtitle": "Nur Super-Admins können Admins hinzufügen oder entfernen.",
+    "usernameLabel": "Benutzername",
+    "passwordLabel": "Passwort (mind. 8 Zeichen)",
+    "addButton": "Admin hinzufügen",
+    "delete": "Entfernen",
+    "deleteConfirm": "Diesen Admin entfernen?",
+    "superAdminBadge": "Super-Admin",
+    "errors": {
+      "invalid_input": "Bitte überprüfe die ausgefüllten Felder.",
+      "username_taken": "Es gibt bereits einen Admin mit diesem Benutzernamen.",
+      "cannot_delete_self": "Du kannst dich nicht selbst entfernen.",
+      "last_super_admin": "Der letzte Super-Admin kann nicht entfernt werden.",
+      "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+    }
+  }
+}

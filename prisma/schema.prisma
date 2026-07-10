@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Day {
+  CONSTRUCTION
+  RESEARCH
+  TROOPS
+}
+
+model Event {
+  id        String    @id @default(cuid())
+  label     String
+  startDate DateTime  @db.Date
+  isActive  Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  bookings  Booking[]
+}
+
+model Booking {
+  id         String   @id @default(cuid())
+  eventId    String
+  event      Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  day        Day
+  slot       Int
+  gameId     String
+  playerName String
+  alliance   String
+  createdAt  DateTime @default(now())
+
+  @@unique([eventId, day, slot])
+  @@unique([eventId, day, gameId])
+}
+
+model Admin {
+  id            String   @id @default(cuid())
+  username      String   @unique
+  passwordHash  String
+  isSuperAdmin  Boolean  @default(false)
+  createdAt     DateTime @default(now())
+}

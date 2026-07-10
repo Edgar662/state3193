@@ -1,0 +1,113 @@
+{
+  "app": {
+    "title": "Agenda de Cargos SvS"
+  },
+  "languages": {
+    "pt": "Português",
+    "en": "English",
+    "ar": "العربية",
+    "ru": "Русский",
+    "de": "Deutsch"
+  },
+  "nav": {
+    "schedule": "Agendar",
+    "howItWorks": "Como funciona",
+    "subtitle": "Presidency Scheduler",
+    "language": "Idioma",
+    "state": "Estado {number}",
+    "copyright": "© {year} WOS Scheduler. Todos os direitos reservados."
+  },
+  "days": {
+    "CONSTRUCTION": "Construção",
+    "RESEARCH": "Pesquisa",
+    "TROOPS": "Tropas"
+  },
+  "home": {
+    "title": "Agendar",
+    "subtitle": "Escolha um dia e reserve seu horário.",
+    "noEvent": "Nenhum evento ativo no momento. Fale com um admin.",
+    "slotFree": "Livre",
+    "slotTaken": "Reservado",
+    "unavailable": "Indisponível",
+    "book": "Reservar",
+    "oneSlotNote": "Cada jogador só pode reservar um horário por dia.",
+    "adminLink": "Área do Admin"
+  },
+  "howItWorks": {
+    "title": "Como funciona",
+    "subtitle": "Entenda as regras antes de agendar.",
+    "intro": "Durante o SvS (State vs State), a aliança reveza o cargo de presidente em 3 dias de preparo. Quem ocupa o cargo no horário agendado recebe o bônus correspondente.",
+    "rulesTitle": "Regras",
+    "rules": [
+      "Existem 3 dias: Construção, Pesquisa e Tropas.",
+      "Os horários vão de 00:00 até 23:30, em blocos de 30 minutos, sempre no fuso UTC.",
+      "Cada jogador (identificado pelo ID do jogo) só pode reservar 1 horário por dia.",
+      "O mesmo ID pode reservar horários em dias diferentes, inclusive no mesmo horário do relógio.",
+      "Ao final do mês, um admin abre um novo evento e a grade de horários é reiniciada."
+    ]
+  },
+  "form": {
+    "title": "Agendar horário",
+    "day": "Dia",
+    "time": "Horário (UTC)",
+    "gameId": "ID do jogo",
+    "gameIdHint": "Somente números.",
+    "playerName": "Nome no jogo",
+    "alliance": "Aliança",
+    "allianceHint": "3 letras (sigla da aliança).",
+    "submit": "Confirmar agendamento",
+    "cancel": "Cancelar",
+    "submitting": "Enviando...",
+    "success": "Agendado com sucesso!",
+    "allDaysCheckbox": "Reservar este mesmo horário ({time}) nos 3 dias: Construção, Pesquisa e Tropas.",
+    "resultsTitle": "Resultado do agendamento",
+    "close": "Fechar",
+    "errors": {
+      "invalid_input": "Verifique os campos preenchidos.",
+      "slot_taken": "Esse horário acabou de ser ocupado. Escolha outro.",
+      "id_already_booked_today": "Esse ID já tem um horário agendado nesse dia.",
+      "no_active_event": "Nenhum evento ativo no momento.",
+      "generic": "Algo deu errado. Tente novamente."
+    }
+  },
+  "admin": {
+    "loginTitle": "Login do administrador",
+    "username": "Usuário",
+    "password": "Senha",
+    "loginButton": "Entrar",
+    "loginError": "Usuário ou senha inválidos.",
+    "logout": "Sair",
+    "panelTitle": "Painel do administrador",
+    "activeEvent": "Evento ativo",
+    "newEvent": "Abrir novo mês",
+    "newEventDateLabel": "Data de início (Construção)",
+    "newEventConfirm": "Isso zera a grade de agendamentos para um novo mês. O mês atual fica salvo no histórico. Continuar?",
+    "history": "Histórico de eventos",
+    "copyId": "Copiar ID",
+    "copied": "ID copiado!",
+    "delete": "Excluir",
+    "deleteConfirm": "Remover este agendamento?",
+    "empty": "Nenhum agendamento ainda.",
+    "gameId": "ID",
+    "playerName": "Nome",
+    "alliance": "Aliança",
+    "time": "Horário"
+  },
+  "admins": {
+    "title": "Gerenciar administradores",
+    "subtitle": "Apenas super admins podem adicionar ou remover administradores.",
+    "usernameLabel": "Usuário",
+    "passwordLabel": "Senha (mín. 8 caracteres)",
+    "addButton": "Adicionar admin",
+    "delete": "Remover",
+    "deleteConfirm": "Remover este administrador?",
+    "superAdminBadge": "Super admin",
+    "errors": {
+      "invalid_input": "Verifique os campos preenchidos.",
+      "username_taken": "Já existe um admin com esse usuário.",
+      "cannot_delete_self": "Você não pode remover a si mesmo.",
+      "last_super_admin": "Não é possível remover o último super admin.",
+      "generic": "Algo deu errado. Tente novamente."
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "app": {
+    "title": "SvS Role Schedule"
+  },
+  "languages": {
+    "pt": "Português",
+    "en": "English",
+    "ar": "العربية",
+    "ru": "Русский",
+    "de": "Deutsch"
+  },
+  "nav": {
+    "schedule": "Schedule",
+    "howItWorks": "How it works",
+    "subtitle": "Presidency Scheduler",
+    "language": "Language",
+    "state": "State {number}",
+    "copyright": "© {year} WOS Scheduler. All rights reserved."
+  },
+  "days": {
+    "CONSTRUCTION": "Construction",
+    "RESEARCH": "Research",
+    "TROOPS": "Troops"
+  },
+  "home": {
+    "title": "Schedule",
+    "subtitle": "Choose a day and book your slot.",
+    "noEvent": "No active event right now. Contact an admin.",
+    "slotFree": "Free",
+    "slotTaken": "Booked",
+    "unavailable": "Unavailable",
+    "book": "Book",
+    "oneSlotNote": "Each player can only book one slot per day.",
+    "adminLink": "Admin area"
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "subtitle": "Understand the rules before booking.",
+    "intro": "During SvS (State vs State), the alliance rotates the president role across 3 prep days. Whoever holds the role during the booked slot gets the matching buff.",
+    "rulesTitle": "Rules",
+    "rules": [
+      "There are 3 days: Construction, Research and Troops.",
+      "Slots run from 00:00 to 23:30, in 30-minute blocks, always in UTC.",
+      "Each player (identified by game ID) can only book 1 slot per day.",
+      "The same ID can book slots on different days, even at the same clock time.",
+      "At the end of the month, an admin opens a new event and the schedule resets."
+    ]
+  },
+  "form": {
+    "title": "Book a slot",
+    "day": "Day",
+    "time": "Time (UTC)",
+    "gameId": "Game ID",
+    "gameIdHint": "Numbers only.",
+    "playerName": "In-game name",
+    "alliance": "Alliance",
+    "allianceHint": "3 letters (alliance tag).",
+    "submit": "Confirm booking",
+    "cancel": "Cancel",
+    "submitting": "Submitting...",
+    "success": "Booked successfully!",
+    "allDaysCheckbox": "Book this same time ({time}) on all 3 days: Construction, Research and Troops.",
+    "resultsTitle": "Booking result",
+    "close": "Close",
+    "errors": {
+      "invalid_input": "Please check the fields you filled in.",
+      "slot_taken": "That slot was just taken. Pick another one.",
+      "id_already_booked_today": "This ID already has a slot booked on this day.",
+      "no_active_event": "There is no active event right now.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "admin": {
+    "loginTitle": "Admin login",
+    "username": "Username",
+    "password": "Password",
+    "loginButton": "Sign in",
+    "loginError": "Invalid username or password.",
+    "logout": "Sign out",
+    "panelTitle": "Admin panel",
+    "activeEvent": "Active event",
+    "newEvent": "Open new month",
+    "newEventDateLabel": "Start date (Construction)",
+    "newEventConfirm": "This resets the schedule for a new month. The current month is kept in history. Continue?",
+    "history": "Event history",
+    "copyId": "Copy ID",
+    "copied": "ID copied!",
+    "delete": "Delete",
+    "deleteConfirm": "Remove this booking?",
+    "empty": "No bookings yet.",
+    "gameId": "ID",
+    "playerName": "Name",
+    "alliance": "Alliance",
+    "time": "Time"
+  },
+  "admins": {
+    "title": "Manage admins",
+    "subtitle": "Only super admins can add or remove admins.",
+    "usernameLabel": "Username",
+    "passwordLabel": "Password (min. 8 characters)",
+    "addButton": "Add admin",
+    "delete": "Remove",
+    "deleteConfirm": "Remove this admin?",
+    "superAdminBadge": "Super admin",
+    "errors": {
+      "invalid_input": "Please check the fields you filled in.",
+      "username_taken": "An admin with this username already exists.",
+      "cannot_delete_self": "You cannot remove yourself.",
+      "last_super_admin": "You cannot remove the last super admin.",
+      "generic": "Something went wrong. Please try again."
+    }
+  }
+}
