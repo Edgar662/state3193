@@ -1,4 +1,6 @@
-import type { DayKey } from "@/lib/slots";
+import type { DayKey, EventDates } from "@/lib/slots";
+
+type EventCore = { id: string; label: string; isActive: boolean; createdAt: string } & EventDates;
 
 export type PublicBooking = {
   day: DayKey;
@@ -8,7 +10,7 @@ export type PublicBooking = {
 };
 
 export type ActiveEventResponse = {
-  event: { id: string; label: string; startDate: string; isActive: boolean; createdAt: string } | null;
+  event: EventCore | null;
   bookings: PublicBooking[];
 };
 
@@ -22,11 +24,6 @@ export type AdminBooking = {
   createdAt: string;
 };
 
-export type AdminEvent = {
-  id: string;
-  label: string;
-  startDate: string;
-  isActive: boolean;
-  createdAt: string;
+export type AdminEvent = EventCore & {
   bookings: AdminBooking[];
 };

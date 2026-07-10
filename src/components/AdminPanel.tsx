@@ -9,8 +9,10 @@ import type { AdminEvent } from "@/lib/types";
 import { PageHeader } from "@/components/PageHeader";
 import { AdminUsersManager } from "@/components/AdminUsersManager";
 
-function todayIso(): string {
-  return new Date().toISOString().slice(0, 10);
+function todayIso(offsetDays = 0): string {
+  const d = new Date();
+  d.setDate(d.getDate() + offsetDays);
+  return d.toISOString().slice(0, 10);
 }
 
 export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
@@ -21,7 +23,11 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
   const [events, setEvents] = useState<AdminEvent[] | null>(null);
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [newEventDate, setNewEventDate] = useState(todayIso());
+  const [newEventDates, setNewEventDates] = useState<Record<DayKey, string>>({
+    CONSTRUCTION: todayIso(),
+    RESEARCH: todayIso(1),
+    TROOPS: todayIso(2),
+  });
 
   const load = useCallback(async () => {
     const res = await fetch("/api/admin/events", { cache: "no-store" });
@@ -46,7 +52,11 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
     await fetch("/api/admin/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ startDate: newEventDate }),
+      body: JSON.stringify({
+        constructionDate: newEventDates.CONSTRUCTION,
+        researchDate: newEventDates.RESEARCH,
+        troopsDate: newEventDates.TROOPS,
+      }),
     });
     setSelectedEventId(null);
     load();
@@ -104,16 +114,18 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
             </select>
           </div>
 
-          <div className="flex flex-col gap-2 sm:ml-auto sm:flex-row sm:items-end">
-            <div>
-              <label className="mb-1 block text-xs font-medium text-slate-400">{t("newEventDateLabel")}</label>
-              <input
-                type="date"
-                value={newEventDate}
-                onChange={(e) => setNewEventDate(e.target.value)}
-                className="w-full rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200 sm:w-auto"
-              />
-            </div>
+          <div className="flex flex-col gap-3 sm:ml-auto sm:flex-row sm:items-end sm:flex-wrap">
+            {DAYS.map((day) => (
+              <div key={day}>
+                <label className="mb-1 block text-xs font-medium text-slate-400">{tDays(day)}</label>
+                <input
+                  type="date"
+                  value={newEventDates[day]}
+                  onChange={(e) => setNewEventDates((prev) => ({ ...prev, [day]: e.target.value }))}
+                  className="w-full rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200 sm:w-auto"
+                />
+              </div>
+            ))}
             <button
               onClick={handleNewEvent}
               className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700"

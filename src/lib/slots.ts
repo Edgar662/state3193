@@ -14,20 +14,21 @@ export function currentMonthLabel(date = new Date()): string {
   return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}`;
 }
 
-const DAY_OFFSET: Record<DayKey, number> = {
-  CONSTRUCTION: 0,
-  RESEARCH: 1,
-  TROOPS: 2,
+export type EventDates = {
+  constructionDate: Date | string;
+  researchDate: Date | string;
+  troopsDate: Date | string;
 };
 
-/** Data (UTC) de um dos 3 dias do evento, a partir da data de inicio (dia de Construcao). */
-export function dateForDay(startDate: Date | string, day: DayKey): Date {
-  const start = new Date(startDate);
-  const result = new Date(
-    Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate())
-  );
-  result.setUTCDate(result.getUTCDate() + DAY_OFFSET[day]);
-  return result;
+const DAY_FIELD: Record<DayKey, keyof EventDates> = {
+  CONSTRUCTION: "constructionDate",
+  RESEARCH: "researchDate",
+  TROOPS: "troopsDate",
+};
+
+/** Data (UTC) de um dos 3 dias do evento — cada dia tem sua propria data, nao necessariamente consecutivas. */
+export function dateForDay(event: EventDates, day: DayKey): Date {
+  return new Date(event[DAY_FIELD[day]]);
 }
 
 export function formatDate(date: Date, locale: string): string {

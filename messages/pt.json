@@ -82,7 +82,6 @@
     "panelTitle": "Painel do administrador",
     "activeEvent": "Evento ativo",
     "newEvent": "Abrir novo mês",
-    "newEventDateLabel": "Data de início (Construção)",
     "newEventConfirm": "Isso zera a grade de agendamentos para um novo mês. O mês atual fica salvo no histórico. Continuar?",
     "history": "Histórico de eventos",
     "copyId": "Copiar ID",

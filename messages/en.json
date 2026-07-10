@@ -82,7 +82,6 @@
     "panelTitle": "Admin panel",
     "activeEvent": "Active event",
     "newEvent": "Open new month",
-    "newEventDateLabel": "Start date (Construction)",
     "newEventConfirm": "This resets the schedule for a new month. The current month is kept in history. Continue?",
     "history": "Event history",
     "copyId": "Copy ID",

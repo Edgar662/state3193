@@ -82,7 +82,6 @@
     "panelTitle": "Admin-Bereich",
     "activeEvent": "Aktives Event",
     "newEvent": "Neuen Monat starten",
-    "newEventDateLabel": "Startdatum (Bau)",
     "newEventConfirm": "Dadurch wird der Zeitplan für einen neuen Monat zurückgesetzt. Der aktuelle Monat bleibt im Verlauf gespeichert. Fortfahren?",
     "history": "Event-Verlauf",
     "copyId": "ID kopieren",

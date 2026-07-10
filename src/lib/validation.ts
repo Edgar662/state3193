@@ -36,8 +36,12 @@ export const batchBookingInputSchema = z.object({
 
 export type BatchBookingInput = z.infer<typeof batchBookingInputSchema>;
 
+const dateStringSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
+
 export const createEventInputSchema = z.object({
-  startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  constructionDate: dateStringSchema,
+  researchDate: dateStringSchema,
+  troopsDate: dateStringSchema,
 });
 
 export type CreateEventInput = z.infer<typeof createEventInputSchema>;

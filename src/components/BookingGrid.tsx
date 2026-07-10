@@ -49,7 +49,7 @@ export function BookingGrid() {
     load();
   }, [load]);
 
-  const dayDate = data?.event ? dateForDay(data.event.startDate, activeDay) : null;
+  const dayDate = data?.event ? dateForDay(data.event, activeDay) : null;
 
   return (
     <div className="flex flex-1 flex-col">

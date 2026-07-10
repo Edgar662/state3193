@@ -20,12 +20,14 @@ enum Day {
 }
 
 model Event {
-  id        String    @id @default(cuid())
-  label     String
-  startDate DateTime  @db.Date
-  isActive  Boolean   @default(true)
-  createdAt DateTime  @default(now())
-  bookings  Booking[]
+  id               String    @id @default(cuid())
+  label            String
+  constructionDate DateTime  @db.Date
+  researchDate     DateTime  @db.Date
+  troopsDate       DateTime  @db.Date
+  isActive         Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+  bookings         Booking[]
 }
 
 model Booking {

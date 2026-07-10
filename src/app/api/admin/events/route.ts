@@ -25,12 +25,21 @@ export async function POST(request: Request) {
   if (!parsed.success) {
     return NextResponse.json({ error: "invalid_input" }, { status: 400 });
   }
-  const startDate = new Date(`${parsed.data.startDate}T00:00:00.000Z`);
+  const constructionDate = new Date(`${parsed.data.constructionDate}T00:00:00.000Z`);
+  const researchDate = new Date(`${parsed.data.researchDate}T00:00:00.000Z`);
+  const troopsDate = new Date(`${parsed.data.troopsDate}T00:00:00.000Z`);
+  const earliestDate = new Date(Math.min(constructionDate.getTime(), researchDate.getTime(), troopsDate.getTime()));
 
   const event = await prisma.$transaction(async (tx) => {
     await tx.event.updateMany({ where: { isActive: true }, data: { isActive: false } });
     return tx.event.create({
-      data: { label: currentMonthLabel(startDate), startDate, isActive: true },
+      data: {
+        label: currentMonthLabel(earliestDate),
+        constructionDate,
+        researchDate,
+        troopsDate,
+        isActive: true,
+      },
     });
   });
 

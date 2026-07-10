@@ -23,9 +23,12 @@ async function main() {
   const activeEvent = await prisma.event.findFirst({ where: { isActive: true } });
   if (!activeEvent) {
     const today = new Date();
-    const startDate = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()));
+    const base = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+    const constructionDate = new Date(base);
+    const researchDate = new Date(base + 86_400_000);
+    const troopsDate = new Date(base + 2 * 86_400_000);
     const event = await prisma.event.create({
-      data: { label: currentMonthLabel(), startDate, isActive: true },
+      data: { label: currentMonthLabel(), constructionDate, researchDate, troopsDate, isActive: true },
     });
     console.log(`Evento ativo criado: ${event.label}`);
   } else {
