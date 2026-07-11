@@ -8,6 +8,7 @@ import { DAYS, slotToLabel, type DayKey } from "@/lib/slots";
 import type { AdminEvent } from "@/lib/types";
 import { PageHeader } from "@/components/PageHeader";
 import { AdminUsersManager } from "@/components/AdminUsersManager";
+import { AuditLogViewer } from "@/components/AuditLogViewer";
 
 function todayIso(offsetDays = 0): string {
   const d = new Date();
@@ -190,6 +191,7 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
         ))}
 
         {isSuperAdmin && <AdminUsersManager />}
+        {isSuperAdmin && <AuditLogViewer />}
       </div>
     </div>
   );

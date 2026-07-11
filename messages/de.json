@@ -110,5 +110,20 @@
       "last_super_admin": "Der letzte Super-Admin kann nicht entfernt werden.",
       "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     }
+  },
+  "auditLog": {
+    "title": "Prüfprotokoll",
+    "subtitle": "Verlauf der von Admins gelöschten Buchungen.",
+    "when": "Wann",
+    "admin": "Admin",
+    "action": "Aktion",
+    "actionDeleted": "Buchung gelöscht",
+    "event": "Event",
+    "day": "Tag",
+    "time": "Uhrzeit",
+    "gameId": "ID",
+    "playerName": "Name",
+    "alliance": "Allianz",
+    "empty": "Noch keine Einträge."
   }
 }

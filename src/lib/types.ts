@@ -27,3 +27,16 @@ export type AdminBooking = {
 export type AdminEvent = EventCore & {
   bookings: AdminBooking[];
 };
+
+export type AuditLogEntry = {
+  id: string;
+  action: string;
+  adminUsername: string;
+  eventLabel: string;
+  day: DayKey;
+  slot: number;
+  gameId: string;
+  playerName: string;
+  alliance: string;
+  createdAt: string;
+};

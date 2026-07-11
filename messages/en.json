@@ -110,5 +110,20 @@
       "last_super_admin": "You cannot remove the last super admin.",
       "generic": "Something went wrong. Please try again."
     }
+  },
+  "auditLog": {
+    "title": "Audit log",
+    "subtitle": "History of booking deletions made by admins.",
+    "when": "When",
+    "admin": "Admin",
+    "action": "Action",
+    "actionDeleted": "Deleted booking",
+    "event": "Event",
+    "day": "Day",
+    "time": "Time",
+    "gameId": "ID",
+    "playerName": "Name",
+    "alliance": "Alliance",
+    "empty": "No entries yet."
   }
 }
