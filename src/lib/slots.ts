@@ -3,6 +3,13 @@ export type DayKey = (typeof DAYS)[number];
 
 export const SLOT_COUNT = 48;
 
+/** Nomes em ingles, usados quando o texto precisa ser sempre em ingles (ex: copiar pra compartilhar). */
+export const ENGLISH_DAY_NAMES: Record<DayKey, string> = {
+  CONSTRUCTION: "Construction",
+  RESEARCH: "Research",
+  TROOPS: "Troops",
+};
+
 /** Slot index 0-47 -> "HH:MM" em UTC (00:00, 00:30, ... 23:30). */
 export function slotToLabel(slot: number): string {
   const hours = Math.floor(slot / 2);

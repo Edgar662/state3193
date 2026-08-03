@@ -88,6 +88,8 @@
     "reactivateConfirm": "Dadurch wird dieser Monat wieder aktiv — Spieler sehen und buchen ihn wieder. Der bisher aktive Monat wird deaktiviert. Fortfahren?",
     "copyId": "ID kopieren",
     "copied": "ID kopiert!",
+    "copyFreeSlots": "Freie Zeiten kopieren",
+    "copiedFreeSlots": "Kopiert!",
     "delete": "Löschen",
     "deleteConfirm": "Diese Buchung entfernen?",
     "empty": "Noch keine Buchungen.",

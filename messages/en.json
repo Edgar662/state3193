@@ -88,6 +88,8 @@
     "reactivateConfirm": "This makes this month active again — players will see and book it again. The month that was active stops being active. Continue?",
     "copyId": "Copy ID",
     "copied": "ID copied!",
+    "copyFreeSlots": "Copy free slots",
+    "copiedFreeSlots": "Copied!",
     "delete": "Delete",
     "deleteConfirm": "Remove this booking?",
     "empty": "No bookings yet.",

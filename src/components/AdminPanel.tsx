@@ -1,10 +1,18 @@
 "use client";
 
-import { Copy, LogOut, RotateCcw, Trash2 } from "lucide-react";
+import { ClipboardCopy, Copy, LogOut, RotateCcw, Trash2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 import { adminLogout } from "@/lib/actions";
-import { DAYS, dateForDay, formatShortDate, slotToLabel, type DayKey } from "@/lib/slots";
+import {
+  DAYS,
+  ENGLISH_DAY_NAMES,
+  SLOT_COUNT,
+  dateForDay,
+  formatShortDate,
+  slotToLabel,
+  type DayKey,
+} from "@/lib/slots";
 import type { AdminEvent } from "@/lib/types";
 import { PageHeader } from "@/components/PageHeader";
 import { AdminUsersManager } from "@/components/AdminUsersManager";
@@ -24,6 +32,7 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
   const [events, setEvents] = useState<AdminEvent[] | null>(null);
   const [selectedEventId, setSelectedEventId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [copiedFreeSlotsDay, setCopiedFreeSlotsDay] = useState<DayKey | null>(null);
   const [newEventDates, setNewEventDates] = useState<Record<DayKey, string>>({
     CONSTRUCTION: todayIso(),
     RESEARCH: todayIso(1),
@@ -67,6 +76,18 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
     navigator.clipboard.writeText(gameId);
     setCopiedId(gameId);
     setTimeout(() => setCopiedId(null), 1500);
+  }
+
+  function handleCopyFreeSlots(day: DayKey) {
+    const taken = new Set((bookingsByDay.get(day) ?? []).map((b) => b.slot));
+    const freeTimes: string[] = [];
+    for (let slot = 0; slot < SLOT_COUNT; slot++) {
+      if (!taken.has(slot)) freeTimes.push(slotToLabel(slot));
+    }
+    const text = `These are the free times for ${ENGLISH_DAY_NAMES[day]} (UTC):\n${freeTimes.join(" ")}`;
+    navigator.clipboard.writeText(text);
+    setCopiedFreeSlotsDay(day);
+    setTimeout(() => setCopiedFreeSlotsDay(null), 1500);
   }
 
   async function handleReactivate() {
@@ -157,7 +178,16 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
 
         {DAYS.map((day) => (
           <div key={day} className="mb-6">
-            <h2 className="mb-2 font-medium text-slate-200">{tDays(day)}</h2>
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <h2 className="font-medium text-slate-200">{tDays(day)}</h2>
+              <button
+                onClick={() => handleCopyFreeSlots(day)}
+                className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:underline"
+              >
+                <ClipboardCopy className="h-3.5 w-3.5" />
+                {copiedFreeSlotsDay === day ? t("copiedFreeSlots") : t("copyFreeSlots")}
+              </button>
+            </div>
             <div className="overflow-x-auto rounded-lg border border-slate-800">
               <table className="w-full text-left text-sm">
                 <thead className="bg-slate-900/70 text-slate-400">

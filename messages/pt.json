@@ -88,6 +88,8 @@
     "reactivateConfirm": "Isso torna este mês o evento ativo de novo — os jogadores voltam a ver e agendar nele. O mês que estava ativo deixa de estar. Continuar?",
     "copyId": "Copiar ID",
     "copied": "ID copiado!",
+    "copyFreeSlots": "Copiar horários livres",
+    "copiedFreeSlots": "Copiado!",
     "delete": "Excluir",
     "deleteConfirm": "Remover este agendamento?",
     "empty": "Nenhum agendamento ainda.",
