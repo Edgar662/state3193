@@ -84,6 +84,8 @@
     "newEvent": "Neuen Monat starten",
     "newEventConfirm": "Dadurch wird der Zeitplan für einen neuen Monat zurückgesetzt. Der aktuelle Monat bleibt im Verlauf gespeichert. Fortfahren?",
     "history": "Event-Verlauf",
+    "reactivate": "Reaktivieren",
+    "reactivateConfirm": "Dadurch wird dieser Monat wieder aktiv — Spieler sehen und buchen ihn wieder. Der bisher aktive Monat wird deaktiviert. Fortfahren?",
     "copyId": "ID kopieren",
     "copied": "ID kopiert!",
     "delete": "Löschen",

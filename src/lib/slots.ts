@@ -35,6 +35,10 @@ export function formatDate(date: Date, locale: string): string {
   return new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", timeZone: "UTC" }).format(date);
 }
 
+export function formatShortDate(date: Date, locale: string): string {
+  return new Intl.DateTimeFormat(locale, { day: "2-digit", month: "2-digit", timeZone: "UTC" }).format(date);
+}
+
 /** Instante exato (UTC) de um slot, combinando a data do dia com o horario do slot. */
 export function slotToDate(dayDate: Date, slot: number): Date {
   const hours = Math.floor(slot / 2);

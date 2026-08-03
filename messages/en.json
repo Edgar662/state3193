@@ -84,6 +84,8 @@
     "newEvent": "Open new month",
     "newEventConfirm": "This resets the schedule for a new month. The current month is kept in history. Continue?",
     "history": "Event history",
+    "reactivate": "Reactivate",
+    "reactivateConfirm": "This makes this month active again — players will see and book it again. The month that was active stops being active. Continue?",
     "copyId": "Copy ID",
     "copied": "ID copied!",
     "delete": "Delete",

@@ -84,6 +84,8 @@
     "newEvent": "Abrir novo mês",
     "newEventConfirm": "Isso zera a grade de agendamentos para um novo mês. O mês atual fica salvo no histórico. Continuar?",
     "history": "Histórico de eventos",
+    "reactivate": "Reativar",
+    "reactivateConfirm": "Isso torna este mês o evento ativo de novo — os jogadores voltam a ver e agendar nele. O mês que estava ativo deixa de estar. Continuar?",
     "copyId": "Copiar ID",
     "copied": "ID copiado!",
     "delete": "Excluir",

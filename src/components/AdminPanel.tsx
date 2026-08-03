@@ -1,10 +1,10 @@
 "use client";
 
-import { Copy, LogOut, Trash2 } from "lucide-react";
+import { Copy, LogOut, RotateCcw, Trash2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 import { adminLogout } from "@/lib/actions";
-import { DAYS, slotToLabel, type DayKey } from "@/lib/slots";
+import { DAYS, dateForDay, formatShortDate, slotToLabel, type DayKey } from "@/lib/slots";
 import type { AdminEvent } from "@/lib/types";
 import { PageHeader } from "@/components/PageHeader";
 import { AdminUsersManager } from "@/components/AdminUsersManager";
@@ -69,6 +69,13 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
     setTimeout(() => setCopiedId(null), 1500);
   }
 
+  async function handleReactivate() {
+    if (!selectedEventId) return;
+    if (!confirm(t("reactivateConfirm"))) return;
+    await fetch(`/api/admin/events/${selectedEventId}/activate`, { method: "POST" });
+    load();
+  }
+
   if (!events) return null;
 
   const selectedEvent = events.find((e) => e.id === selectedEventId) ?? events[0] ?? null;
@@ -102,17 +109,29 @@ export function AdminPanel({ isSuperAdmin }: { isSuperAdmin: boolean }) {
             <label className="mb-1 block text-xs font-medium text-slate-400">
               {selectedEvent?.isActive ? t("activeEvent") : t("history")}
             </label>
-            <select
-              value={selectedEventId ?? ""}
-              onChange={(e) => setSelectedEventId(e.target.value)}
-              className="w-full rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200 sm:w-auto"
-            >
-              {events.map((event) => (
-                <option key={event.id} value={event.id}>
-                  {event.label} {event.isActive ? "★" : ""}
-                </option>
-              ))}
-            </select>
+            <div className="flex items-center gap-2">
+              <select
+                value={selectedEventId ?? ""}
+                onChange={(e) => setSelectedEventId(e.target.value)}
+                className="w-full rounded-md border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-slate-200 sm:w-auto"
+              >
+                {events.map((event) => (
+                  <option key={event.id} value={event.id}>
+                    {event.label} · {formatShortDate(dateForDay(event, "CONSTRUCTION"), locale)} {event.isActive ? "★" : ""}
+                  </option>
+                ))}
+              </select>
+              {selectedEvent && !selectedEvent.isActive && (
+                <button
+                  onClick={handleReactivate}
+                  title={t("reactivate")}
+                  className="flex shrink-0 items-center gap-1.5 rounded-md border border-slate-700 px-2.5 py-1.5 text-xs font-medium text-slate-300 hover:border-blue-600 hover:text-blue-400"
+                >
+                  <RotateCcw className="h-3.5 w-3.5" />
+                  {t("reactivate")}
+                </button>
+              )}
+            </div>
           </div>
 
           <div className="flex flex-col gap-3 sm:ml-auto sm:flex-row sm:items-end sm:flex-wrap">
