@@ -26,7 +26,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "invalid_input" }, { status: 400 });
   }
 
-  const existing = await prisma.admin.findUnique({ where: { username: parsed.data.username } });
+  const existing = await prisma.admin.findFirst({
+    where: { username: { equals: parsed.data.username, mode: "insensitive" } },
+  });
   if (existing) {
     return NextResponse.json({ error: "username_taken" }, { status: 409 });
   }
