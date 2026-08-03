@@ -53,7 +53,7 @@
     "day": "День",
     "time": "Время (UTC)",
     "gameId": "ID игрока",
-    "gameIdHint": "Только цифры.",
+    "gameIdHint": "Только цифры (от 6 до 10).",
     "playerName": "Имя в игре",
     "alliance": "Альянс",
     "allianceHint": "3 буквы (тег альянса).",

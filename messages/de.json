@@ -53,7 +53,7 @@
     "day": "Tag",
     "time": "Uhrzeit (UTC)",
     "gameId": "Spiel-ID",
-    "gameIdHint": "Nur Zahlen.",
+    "gameIdHint": "Nur Zahlen (6 bis 10 Ziffern).",
     "playerName": "Name im Spiel",
     "alliance": "Allianz",
     "allianceHint": "3 Buchstaben (Allianz-Tag).",

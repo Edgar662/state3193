@@ -128,8 +128,9 @@ export function BookingForm({ day, slot, onCancel, onSuccess }: Props) {
             <input
               {...gameIdField}
               inputMode="numeric"
+              maxLength={10}
               onChange={(e) => {
-                e.target.value = e.target.value.replace(/\D/g, "");
+                e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
                 gameIdField.onChange(e);
               }}
               className="w-full rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-slate-100"

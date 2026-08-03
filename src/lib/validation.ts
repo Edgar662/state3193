@@ -1,12 +1,13 @@
 import { z } from "zod";
 import { DAYS, SLOT_COUNT } from "@/lib/slots";
 
+// IDs de jogador do Whiteout Survival sao numericos, tipicamente com 9 digitos.
+// A faixa 6-10 cobre contas antigas (menos digitos) e crescimento futuro, mas
+// rejeita entradas obviamente erradas como "2100".
 const gameIdSchema = z
   .string()
   .trim()
-  .regex(/^\d+$/, "invalid_input")
-  .min(1)
-  .max(20);
+  .regex(/^\d{6,10}$/, "invalid_input");
 
 const playerNameSchema = z.string().trim().min(1).max(50);
 
